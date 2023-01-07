@@ -12,7 +12,6 @@ console.log(areaEstudo)
 
 let nascimento 
 nascimento = window.prompt("Ano de nascimento")
-parseFloat(nascimento)
 console.log(nascimento)
 
 alert(

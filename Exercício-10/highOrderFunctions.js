@@ -1,66 +1,139 @@
-const calculadora = {}
-calculadora.somar = function (a, b) {
-  return a + b
-}
-console.log(calculadora.somar(3, 7))
+let quadroVagas = []
 
-calculadora.subtrair = function (a, b) {
-  return a - b
-}
-console.log(calculadora.subtrair(3, 7))
-calculadora.multiplicar = function (a, b) {
-  return a * b
-}
-console.log(calculadora.multiplicar(3, 7))
-console.log("===============================")
-
-//_____________________________________________________
-//high order functions
-
-function calcular(a, b, operacao) {
-  console.log("realizando um operação.")
-  const resultado = operacao(a, b)
-  return resultado
+function listarVagas() {
+  const lista = quadroVagas.reduce(function (textoFinal, vaga, indice) {
+    textoFinal += indice + ". "
+    textoFinal += vaga.nome
+    textoFinal += " (" + vaga.candidatos.lenght + "candatos)\n"
+    return textoFinal
+  }, "")
+  alert(lista)
 }
 
-function somar(x, y) {
-  return x + y
+function criarVaga(nome, descricao, dataLimite) {
+  let novaVaga = {
+    nome,
+    descricao,
+    dataLimite,
+    candidatos: []
+  }
+  novaVaga.nome = prompt("Qual o nome da vaga que será registrada?")
+  novaVaga.descricao = prompt("Dê uma descrição da vaga")
+  novaVaga.dataLimite = prompt("Até quando a vaga estará disponível?")
+
+  const confirmation = confirm(
+    "Cofirme os dados da vaga\n" +
+    "\nNome da vaga: " + novaVaga.nome +
+    "\nDescrição da vaga: " + novaVaga.descricao +
+    "\nData limite da vaga: " + novaVaga.dataLimite
+  )
+  if (confirmation) {
+    quadroVagas.push(novaVaga)
+    alert("Vaga criada.")
+  }
 }
-console.log(calcular(5, 5, somar))
 
-function subtrair(x, y) {
-  return x - y
-}
-
-console.log(calcular(5, 4, subtrair))
-
-console.log("===============================")
-/////////////////////////////////////////////////////
-console.log("Estrutura de código antes de usar o ForEach()")
-
-function exibirElemento(elemento, indice, array) {
-  console.log({
-    elemento,
+function exibirVaga(indice,vaga) {
+  let exibir = {
     indice,
-    array
-  })
+    vaga
+  }
+  exibir.indice = prompt("qual o indice da vaga")
+  exibir.vaga = quadroVagas[indice]
+
+  const candidatosEmTexto = vaga.candidatos.reduce(function (textoFinal, candidato) {
+    return textoFinal + "\n - " + candidato
+  }, "")
+
+  alert(
+    "Vaga número " + indice +
+    "\nNome: " + vaga.nome +
+    "\nDescrição: " + vaga.descricao +
+    "\nData Limite: " + vaga.dataLimite +
+    "\nQuantidade de candidatos: " + vaga.candidatos.lenght +
+    "\nCandidatos inscritos: " + candidatosEmTexto
+  )
 }
 
-const lista = ["mação", "vanana", "laranja", "limão"]
+function inscreverCandidato(nome, indiceVaga, vaga) {
+  let candidato = {
+    nome,
+    indiceVaga,
+    vaga
+  }
 
-for (let i = 0; i < lista.length; i++) {
-  exibirElemento(lista[i], i, lista)
+  candidato.nome = prompt("Informe o nome do candidato: ")
+  candidato.indiceVaga = prompt("Informe o indice da vaga: ")
+  candidato.vaga = quadroVagas[indiceVaga]
+
+  const confirmacao = confirm(
+    "Deseja increver o candidato " + candidato.nome + " na vaga " + candidato.vaga + "?\n" +
+    "Nome: " + candidato.vaga.nome + "\nDescrição: " + candidato.vaga.descricao + "\nData Limite: " + candidato.vaga.dataLimite
+  )
+
+  if (confirmation) {
+    vaga.candidatos.push(candidato)
+    alert("Inscrição realizada")
+  }
 }
 
-console.log("Estrutura de código usando o ForEach()")
+function excluirVaga() {
+  const indice = prompt("Informe o indice da vaga que deseja excluir:")
+  const vaga = quadroVagas[indice]
 
-lista.forEach(exibirElemento)
+  const confirmacao = confirm("Tem certeza que deseja excluir a vaga " + indice + "? " +
+    "Nome: " + candidato.vaga.nome + "\nDescrição: " + candidato.vaga.descricao + "\nData Limite: " + candidato.vaga.dataLimite
+  )
 
-console.log("Passando uma função anônima no ForEach()")
-lista.forEach(function (elemento, indice, array) {
-  console.log({
-    elemento, 
-    indice, 
-    array
-  })
-})
+  if (confirmacao) {
+    quadroVagas.splice(indice, 1)
+    alert("vaga escluida")
+  }
+}
+
+function exibirMenu() {
+  let opcao = prompt(
+    "MENU DO SISTEMA DE VAGAS\n" +
+    "\n1. Listar vagas disponiveis." +
+    "\n2. Criar uma nova vaga." +
+    "\n3. Visualizar uma vaga." +
+    "\n4. Inscrever um candidato em uma vaga." +
+    "\n5. Excluir uma vaga." +
+    "\n6. Sair."
+  )
+  return opcao
+}
+
+function executar() {
+  let opcao = ""
+
+  do {
+    opcao = exibirMenu()
+
+    switch (opcao) {
+      case "1":
+        listarVagas()
+        break
+      case "2":
+        criarVaga()
+        break
+      case "3":
+        exibirVaga()
+        break
+      case "4":
+        inscreverCandidato()
+        break
+      case "5":
+        excluirVaga()
+        break
+      case "6":
+        alert("Saindo...")
+        break
+      default:
+        alert("Opção inválida")
+      }
+    } while (opcao !== "6")
+   } 
+
+executar()
+

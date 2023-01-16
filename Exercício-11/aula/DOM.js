@@ -1,22 +1,26 @@
 //Obtendo Elementos HTML do DOM
-function show() {
-  const contactList = document.getElementById('contact-list')
-  console.log(contactList)
+// function show() {
+//   const contactList = document.getElementById('contact-list')
+//   console.log(contactList)
 
-  const listElements = document.getElementsByTagName('li')
-  console.log(listElements)
+//   const listElements = document.getElementsByTagName('li')
+//   console.log(listElements)
 
-  const contactInput = document.getElementsByClassName('contact-input')
-  console.log(contactInput)
+//   const contactInput = document.getElementsByClassName('contact-input')
+//   console.log(contactInput)
 
-  const contact1 = document.getElementsByName('contact1')
-  console.log(contact1)
+//   const contact1 = document.getElementsByName('contact1')
+//   console.log(contact1)
+//   const contact2 = document.getElementsByName('contact2')
+//   console.log(contact2)
+//   const contact3 = document.getElementsByName('contact3')
+//   console.log(contact3)
 
-  const contacts = document.querySelectorAll('#contact-list > li > label')
-  console.log(contacts)
+//   const contacts = document.querySelectorAll('#contact-list > li > label')
+//   console.log(contacts)
 
-  const firstContact = document.querySelector('#contact-list > li > label')
-}
+//   const firstContact = document.querySelector('#contact-list > li > label')
+// }
 
 //Criando Novos Elementos no DOM
 

@@ -1,0 +1,15 @@
+.is-light { 
+  background-color: #f1f5f9; 
+  color: #1f2f3a; 
+}
+
+.is-dark { 
+  background-color: #1f2f3a; 
+  color: #f1f5f9; 
+}
+
+button {
+  border-radius: 8px;
+  border: 1px solid;
+  padding: 4px 4px 4px 4px;
+}

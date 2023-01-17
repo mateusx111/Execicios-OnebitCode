@@ -6,6 +6,7 @@ form.addEventListener("submit", function (e) {
   e.preventDefault()
 
   //obtendo os seletores querySelector("elemento['atributo do elemento']")
+  //ao utilizar o .value ele devolve o valor da opção marcada
   const name = document.querySelector("input[name='name']").value
   const address = document.querySelector("input[name='address']").value
   const breadType = document.querySelector("select[name='breadType']").value

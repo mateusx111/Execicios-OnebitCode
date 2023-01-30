@@ -1,0 +1,1 @@
+const word = prompt("Digite uma palavra para saber se ela é um palíndromo: ")

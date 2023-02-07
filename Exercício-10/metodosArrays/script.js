@@ -8,17 +8,19 @@ calculadora.subtrair = function (a, b) {
   return a - b
 }
 console.log(calculadora.subtrair(3, 7))
+
 calculadora.multiplicar = function (a, b) {
   return a * b
 }
 console.log(calculadora.multiplicar(3, 7))
+
 console.log("===============================")
 
 //_____________________________________________________
 //high order functions
 
 function calcular(a, b, operacao) {
-  console.log("realizando um operação.")
+  console.log("realizando um operação.") 
   const resultado = operacao(a, b)
   return resultado
 }
@@ -26,12 +28,11 @@ function calcular(a, b, operacao) {
 function somar(x, y) {
   return x + y
 }
-console.log(calcular(5, 5, somar))
 
 function subtrair(x, y) {
   return x - y
 }
-
+console.log(calcular(5, 5, somar))
 console.log(calcular(5, 4, subtrair))
 
 console.log("==================================================ForEach()")
@@ -67,7 +68,7 @@ lista.forEach(function (elemento, indice, array) {
 //////////////////////////////////////////////////////////////////
 console.log("======================================================Map()")
 
-console.log("O metodo Map() servepara fazer tranasformções no array.Ele cria um novo array baseado em um já existente")
+console.log("O metodo Map() serve para fazer tranasformações no array.Ele cria um novo array baseado em um já existente")
 
 const personagens = [
   { nivel: 42, nome: "Thrall", raca: "Orc", classe: "Xamã" },
@@ -107,7 +108,7 @@ console.log(racasPersonagens)
 console.log("===================================================Filter()")
 
 
-console.log("Estrutura de código SEM o map()")
+console.log("Estrutura de código SEM o Filter()")
 const orcs =[]
 for (let i = 0; i < personagens.length; i++) {
   if(personagens[i].raca === "Orc"){
@@ -125,9 +126,9 @@ for (let i = 0; i < personagens.length; i++) {
 console.log(justGuerreiros)
 
 
-console.log("Estrutura de código COM o map()")
-const justOrcs = personagens.filter(function(personagem){
-  return personagem.raca === "Orc"
+console.log("Estrutura de código COM o Filter()")
+const justOrcs = personagens.filter(function(personage){
+  return personage.raca === "Orc"
 })
 console.log(justOrcs)
 
@@ -138,3 +139,25 @@ console.log(guerreiros)
 
 //////////////////////////////////////////////////////////////////
 console.log("===================================================Reduce()")
+// Reduce transforma um elemento em outro valor
+// ele acumula valor a cada uma das iterações
+
+const nivelTotal = personagens.reduce(function(valorAcumulado, valorAtual){
+  return valorAcumulado + valorAtual.nivel
+}, 0) // especificando o valorAcumulado inicial
+
+console.log("Nivel total: " + nivelTotal)
+
+// agrupando raças por objetos
+const racas = personagens.reduce(function (valorAcumulado, valorAtual){
+  if (valorAcumulado[valorAtual.raca]){
+    valorAcumulado[valorAtual.raca].push(valorAtual)
+  } else {
+    valorAcumulado[valorAtual.raca] = [valorAtual]
+  }
+
+  return valorAcumulado
+}, {}) // especificando o valorAcumulado inicial
+
+console.log(racas)
+

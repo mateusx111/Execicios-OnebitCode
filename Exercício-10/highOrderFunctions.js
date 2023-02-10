@@ -10,16 +10,10 @@ function listarVagas() {
   alert(lista)
 }
 
-function criarVaga(nome, descricao, dataLimite) {
-  let novaVaga = {
-    nome,
-    descricao,
-    dataLimite,
-    candidatos: []
-  }
+function criarVaga() {
   novaVaga.nome = prompt("Qual o nome da vaga que será registrada?")
   novaVaga.descricao = prompt("Dê uma descrição da vaga")
-  novaVaga.dataLimite = prompt("Até quando a vaga estará disponível?")
+  novaVaga.dataLimite = prompt("Até quando a vaga estará disponível?(dd/mm/aaa)")
 
   const confirmation = confirm(
     "Cofirme os dados da vaga\n" +
@@ -28,6 +22,12 @@ function criarVaga(nome, descricao, dataLimite) {
     "\nData limite da vaga: " + novaVaga.dataLimite
   )
   if (confirmation) {
+    const novaVaga = {
+      nome,
+      descricao,
+      dataLimite,
+      candidatos: []
+    }
     quadroVagas.push(novaVaga)
     alert("Vaga criada.")
   }

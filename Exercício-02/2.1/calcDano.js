@@ -1,4 +1,4 @@
-const perso1 = prompt("Nome do personagem 1 : ")
+const perso1 = prompt("Nome do personagem 1: ")
 const atq = prompt(`Poder de ataque: ${perso1}`)
 
 const perso2= prompt("Nome do personagem 2: ")

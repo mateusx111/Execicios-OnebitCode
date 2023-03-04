@@ -24,9 +24,12 @@ console.log(`soma arrow: ${arrowSummaior(7, 7)}`)
 
 //Arrow function diminuida
 const arrowSum = (a, b) => a + b
+
 console.log(`Soma arrow mais curta: ${arrowSum(6, 6)}`)
+
 
 //Arrow function somente com 1 parâmetro
 const double = n => `O dobro de ${n} é ${n * 2}`
 const number = 21
+
 console.log(double(number))

@@ -17,7 +17,10 @@ console.log(`Soma anônima: ${anonymousSum(5, 5)}`)
 //Função com Arrow Function
 const arrowSummaior = (a, b) => {
   return a + b
-}; console.log(`soma arrow: ${arrowSummaior(7, 7)}`)
+}; 
+
+console.log(`soma arrow: ${arrowSummaior(7, 7)}`)
+
 
 //Arrow function diminuida
 const arrowSum = (a, b) => a + b

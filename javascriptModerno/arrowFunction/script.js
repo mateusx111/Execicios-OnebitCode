@@ -1,6 +1,6 @@
 //Função com retorno normal
 function normalSum(a, b) {
-  return a + b;
+  return a + b
 }; 
 
 console.log(`Soma normal: ${normalSum(2, 2)}`)
@@ -8,7 +8,7 @@ console.log(`Soma normal: ${normalSum(2, 2)}`)
 
 //Função anônima ---> sem nome só o nome reservado function 
 const anonymousSum = function(a, b) {
-  return a + b;
+  return a + b
 }; 
 
 console.log(`Soma anônima: ${anonymousSum(5, 5)}`)

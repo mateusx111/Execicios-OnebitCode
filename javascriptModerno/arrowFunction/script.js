@@ -33,3 +33,4 @@ const double = n => `O dobro de ${n} é ${n * 2}`
 const number = 21
 
 console.log(double(number))
+

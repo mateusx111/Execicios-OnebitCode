@@ -1,30 +1,31 @@
 const person = {
-  name: 'John',
-  job: 'Farmer',
-  parents: ["Anakin", "Padme"]
-}
+  name: "John",
+  job: "Farmer",
+  parents: ["Anakin", "Padme"],
+};
 
 //passar entre chaves as propriesdades que quero desestruturar
-const{ name, job, parents } = person
-console.log(name, job, parents)
+const { name, job, parents } = person;
+console.log(name, job, parents);
 
-const [father, mother] = parents
-console.log(father, mother)
+// Desestruturando arrays. a ondem é importante
+const [father, mother] = parents;
+console.log(father, mother);
 
 //FUNÇÃO COM DESESTRUTURAÇÃO
-function createUser({name, job, parents}) {
-  const id = Math.floor(Math.random() * 9999) //floor => aredonda o número para baixo
+function createUser({ name, job, parents }) {
+  const id = Math.floor(Math.random() * 9999); //floor => aredonda o número para baixo
   return {
     id,
     name,
     job,
-    parents
-  }
+    parents,
+  };
 }
 
-const luke = createUser(person)
+const luke = createUser(person);
 
-console.log(luke)
+console.log(luke);
 
 //const name =person.name
 

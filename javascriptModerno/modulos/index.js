@@ -1,4 +1,3 @@
-
 const render = require("./render")
 const store = require("./store")
 
